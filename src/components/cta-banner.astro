@@ -1,0 +1,22 @@
+---
+import { siteConfig } from '../data/site-data.js';
+const {
+  title = '지금 바로 상담을 시작해보세요!',
+  description = '언제든 편하게 문의주시면 가능 여부와 진행 절차를 친절하게 안내해 드립니다.',
+  eyebrow = 'CONTACT',
+  variant = 'default'
+} = Astro.props;
+---
+<section class={`cta-banner cta-banner--${variant}`} aria-labelledby="cta-banner-title">
+  <div class="site-container cta-banner__inner">
+    <div>
+      <p class="section-heading__eyebrow cta-banner__eyebrow">{eyebrow}</p>
+      <h2 id="cta-banner-title">{title}</h2>
+      <p>{description}</p>
+    </div>
+    <div class="cta-banner__actions">
+      <a class="site-button site-button--kakao" href={siteConfig.kakaoUrl}>카카오톡으로 상담하기</a>
+      <a class="site-button site-button--outline-white" href={siteConfig.telUrl}>전화 상담하기</a>
+    </div>
+  </div>
+</section>

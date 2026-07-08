@@ -1,0 +1,60 @@
+﻿---
+import '../styles/global.css';
+import SiteHeader from '../components/site-header.astro';
+import SiteFooter from '../components/site-footer.astro';
+import { siteConfig } from '../data/site-data.js';
+
+const {
+  title = `${siteConfig.brandName} | 소액결제 · 정보이용료 · 신용카드 현금화`,
+  description = '소액결제, 정보이용료, 신용카드 상담을 빠르고 안전하게 안내합니다. 상담 후 지급률과 가능 여부를 정확히 확인하세요.',
+  pageClass = 'site-page',
+  canonical = '/'
+} = Astro.props;
+
+const canonicalUrl = new URL(canonical, Astro.site ?? 'https://example.com').toString();
+---
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteConfig.brandName} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content="/images/og_image.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="theme-color" content="#ef1f2d" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script src="/scripts/site.js" defer></script>
+  </head>
+  <body class={pageClass}>
+    <SiteHeader />
+    <div>
+      <main id="main-content">
+        <slot />
+      </main>
+      <aside class="floating" aria-label="빠른 상담 버튼">
+        <div class="floating_bubble" aria-hidden="true">
+          <strong>24</strong>시간<br />
+          친절 대응
+        </div>
+        <a class="floating_btn floating-call" href={siteConfig.telUrl} aria-label="24시간 상담">
+          <span class="floating-mega" aria-hidden="true">Vega</span>
+        </a>
+        <a class="floating_btn floating-kakao" href={siteConfig.kakaoUrl} aria-label="카카오톡 상담">
+          <img class="floating-kakao__symbol" src="/images/kakaotalk_symbol.png" alt="" loading="lazy" />
+        </a>
+      </aside>
+      <button class="back-to-top" type="button" aria-label="맨 위로 이동" data-back-to-top></button>
+      <SiteFooter />
+    </div>
+  </body>
+</html>

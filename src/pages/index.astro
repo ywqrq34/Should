@@ -1,0 +1,165 @@
+---
+import BaseLayout from '../layouts/base-layout.astro';
+import SectionHeading from '../components/section-heading.astro';
+import ServiceCard from '../components/service-card.astro';
+import VisualIcon from '../components/visual-icon.astro';
+import CtaBanner from '../components/cta-banner.astro';
+import { siteConfig, serviceCards, supportTiles, benefits, processSteps, notices, guidePosts } from '../data/site-data.js';
+---
+<BaseLayout pageClass="home-page" canonical="/" title={`${siteConfig.brandName} | 소액결제 · 정보이용료 · 신용카드 현금화 | 최저 수수료 보장 최대 90% 지급`}>
+  <section class="home-hero" aria-labelledby="home-hero-title">
+    <div class="site-container home-hero__inner">
+      <div class="home-hero__content">
+        <p class="home-hero__eyebrow">상담 후 정확한 지급률 안내 · 개인정보 보호 · 가능 여부 빠른 확인</p>
+        <h1 id="home-hero-title">소액결제 · 정보이용료 · 신용카드</h1>
+        <p class="home-hero__description">빠르고 안전한 현금화, 8년 무사고 베가티켓에서<br class="home-hero__mobile-break" /> 24시간 언제든 편하게 문의하세요.</p>
+        <div class="home-hero__actions">
+          <a class="site-button site-button--kakao site-button--large" href={siteConfig.kakaoUrl}>카카오톡 상담하기</a>
+          <a class="site-button site-button--primary site-button--large" href="#home-services">빠른 상담신청</a>
+        </div>
+        <ul class="home-hero__chips" aria-label="주요 장점">
+          <li>빠른 가능 여부 확인</li>
+          <li>전문 상담원 1:1 상담</li>
+          <li>개인정보 철저 보호</li>
+          <li>24시간 연중무휴</li>
+        </ul>
+      </div>
+    </div>
+    <div class="hero-proof-panel" aria-label="상담 주요 지표">
+      <div class="hero-proof-item">
+        <span class="hero-proof-item__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false"><path d="M12 3a9 9 0 1 0 9 9h-2a7 7 0 1 1-2.05-4.95L14 10h7V3l-2.62 2.62A8.96 8.96 0 0 0 12 3Z"/></svg>
+        </span>
+        <span><strong>24H</strong><em>상담 가능</em></span>
+      </div>
+      <div class="hero-proof-item">
+        <span class="hero-proof-item__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false"><path d="M13 2 4 14h7l-1 8 10-13h-7l0-7Z"/></svg>
+        </span>
+        <span><strong>빠른 확인</strong><em>적합 상품 안내</em></span>
+      </div>
+      <div class="hero-proof-item">
+        <span class="hero-proof-item__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false"><path d="M12 2 5 5v6c0 4.55 2.91 8.62 7 10 4.09-1.38 7-5.45 7-10V5l-7-3Zm0 2.2 5 2.14V11c0 3.38-2 6.43-5 7.7-3-1.27-5-4.32-5-7.7V6.34l5-2.14Zm3.6 5.2-4.7 4.7-2.1-2.1-1.4 1.4 3.5 3.5L17 10.8l-1.4-1.4Z"/></svg>
+        </span>
+        <span><strong>안전 진행</strong><em>개인정보 보호</em></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-services" id="home-services" aria-labelledby="home-services-title">
+    <div class="section-bridge-marquee" aria-hidden="true">
+      <div class="section-bridge-marquee__track">
+        <span>베가티켓은 소액결제, 정보이용료, 신용카드 상담을 빠르고 안전하게 안내합니다.</span>
+        <span>24시간 상담 가능 여부 확인과 개인정보 보호를 중심으로 정확하게 안내합니다.</span>
+        <span>베가티켓은 소액결제, 정보이용료, 신용카드 상담을 빠르고 안전하게 안내합니다.</span>
+        <span>24시간 상담 가능 여부 확인과 개인정보 보호를 중심으로 정확하게 안내합니다.</span>
+      </div>
+    </div>
+    <div class="section-bridge-label" aria-hidden="true">
+      <span class="section-bridge-label__text">ABOUT VEGATICKET</span>
+      <span class="section-bridge-label__mouse"></span>
+    </div>
+    <div class="site-container">
+      <SectionHeading id="home-services-title" backdrop="SERVICES" eyebrow="SERVICES" title="주요 서비스" description="유형별 상품과 예상 지급률을 빠르게 확인합니다." />
+      <div class="home-services__grid">
+        {serviceCards.map((card, index) => <ServiceCard card={card} className={`home-services__card home-services__card--${index + 1}`} />)}
+        {supportTiles.map((tile) => (
+          <article class="support-card">
+            <div class="support-card__content">
+              <h3>{tile.title}</h3>
+              <p>{tile.summary}</p>
+              <a href="/service">자세히 보기</a>
+            </div>
+            <VisualIcon type={tile.visual} label={tile.title} />
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <a class="section-scroll-button" href="#home-benefits" data-scroll-target="home-benefits" aria-label="왜 베가티켓 인가요 섹션으로 이동"></a>
+
+  <section class="home-benefits" id="home-benefits" aria-labelledby="home-benefits-title">
+    <div class="site-container">
+      <SectionHeading backdrop="BENEFITS" eyebrow="BENEFITS" title={`왜 <span>${siteConfig.brandName}</span>인가요?`} description="빠른 상담, 투명한 안내, 개인정보 보호를 중심으로 고객 상황에 맞춰 안내합니다." />
+      <div class="home-benefits__layout">
+        <article class="benefit-feature-card">
+          <span>베가티켓</span>
+          <h3>상담 전 확인부터<br />진행 안내까지<br />한 번에</h3>
+          <p>복잡한 조건은 줄이고, 고객 상황에 맞춘 상품과 예상 한도를 빠르게 안내합니다.</p>
+          <strong>24시간 상담 · 개인정보 보호 · 투명한 안내</strong>
+        </article>
+        <div class="benefit-grid">
+          {benefits.map((benefit) => (
+            <article class="benefit-card">
+              <span class="benefit-card__icon">{benefit.icon}</span>
+              <h3>{benefit.title}</h3>
+              <p>{benefit.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <a class="section-scroll-button" href="#home-process" data-scroll-target="home-process" aria-label="이용방법 섹션으로 이동"></a>
+
+  <section class="home-process" id="home-process" aria-labelledby="home-process-title">
+    <div class="site-container">
+      <SectionHeading backdrop="PROCESS" eyebrow="이용방법" title="간단한 절차로 빠르게 상담하세요" description="상담 신청부터 가능 여부 확인, 진행 안내까지 단계별로 안내합니다." />
+      <img class="home-process__image" src="/images/main_how.png" alt="" loading="lazy" />
+      <div class="process-list">
+        {processSteps.map((step) => (
+          <article class="process-card">
+            <span class="process-card__step">{step.step}</span>
+            <h3>{step.title}</h3>
+            <p>{step.text}</p>
+            <strong>{step.tag}</strong>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="home-info" id="home-info" aria-label="공지사항과 이용가이드">
+    <div class="site-container home-info__grid">
+      <article class="home-info-card home-info-card--notice">
+        <div class="home-info-card__head">
+          <h2>공지사항 / 자주 묻는 질문</h2>
+          <a href="/notice">더보기</a>
+        </div>
+        <ul class="home-info-card__list">
+          {notices.slice(0, 5).map((notice) => (
+            <li>
+              <a href="/notice">
+                <span>{notice.title}</span>
+                <time datetime={notice.date}>{notice.date}</time>
+              </a>
+            </li>
+          ))}
+        </ul>
+        <div class="home-info-card__bell" aria-hidden="true">i</div>
+      </article>
+      <article class="home-info-card home-info-card--guide">
+        <div class="home-info-card__head">
+          <h2>이용가이드 / 블로그</h2>
+          <a href="/faq">FAQ 보기</a>
+        </div>
+        <div class="guide-preview-list">
+          {guidePosts.map((post) => (
+            <a class="guide-preview" href="/guide">
+              <span class={`guide-preview__thumb guide-preview__thumb--${post.visual}`}></span>
+              <span>
+                <strong>{post.title}</strong>
+                <em>{post.text}</em>
+              </span>
+            </a>
+          ))}
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <CtaBanner />
+</BaseLayout>

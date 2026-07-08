@@ -1,0 +1,9 @@
+---
+import { siteConfig } from '../data/site-data.js';
+
+const { variant = 'default' } = Astro.props;
+const logoSrc = variant === 'white' ? '/images/logo_white.png' : '/images/logo.png';
+---
+<a class={`site-logo site-logo--${variant}`} href="/" aria-label={`${siteConfig.brandName} 홈으로 이동`}>
+  <img src={logoSrc} alt={siteConfig.brandName} width="190" height="42" loading="eager" decoding="async" />
+</a>

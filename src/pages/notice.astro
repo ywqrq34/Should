@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/base-layout.astro';
+import SectionHeading from '../components/section-heading.astro';
+import CtaBanner from '../components/cta-banner.astro';
+import { siteConfig, notices } from '../data/site-data.js';
+---
+<BaseLayout pageClass="notice-page" canonical="/notice" title={`공지사항 | ${siteConfig.brandName}`} description="베가티켓 상담 운영 안내와 주요 공지사항을 확인하세요.">
+  <section class="sub-hero notice-hero">
+    <div class="site-container sub-hero__inner">
+      <div>
+        <p class="sub-hero__eyebrow">NOTICE</p>
+        <h1>공지사항</h1>
+        <p>상담 운영, 정책 안내, 서비스 이용 관련 소식을 확인하세요.</p>
+      </div>
+      <div class="sub-hero__page-icon sub-hero__page-icon--notice" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section class="notice-list-section" aria-labelledby="notice-list-title">
+    <div class="site-container">
+      <SectionHeading eyebrow="NOTICE" title="최근 공지사항" description="운영 안내와 상담 관련 주요 내용을 정리했습니다." />
+      <div class="notice-list" aria-label="공지사항 목록">
+        {notices.map((notice, index) => (
+          <details class="notice-list__item" open={index === 0}>
+            <summary>
+              <strong>{notice.title}</strong>
+              <time datetime={notice.date}>{notice.date}</time>
+            </summary>
+            <div class="notice-list__body">
+              <p>{notice.title}에 대한 안내입니다. 상담 가능 여부와 세부 조건은 고객 상황에 따라 달라질 수 있어 상담 시 다시 확인해 드립니다.</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner title="공지에서 찾지 못한 내용이 있나요?" description="상담을 통해 현재 상황에 맞는 답변을 빠르게 안내해 드립니다." />
+</BaseLayout>

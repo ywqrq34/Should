@@ -1,0 +1,50 @@
+---
+import SiteLogo from './site-logo.astro';
+import { navigation, siteConfig } from '../data/site-data.js';
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+<header class="site-header">
+  <div class="site-header__utility">
+    <div class="site-container site-header__utility-inner">
+      <p class="site-header__utility-text"><span aria-hidden="true">TEL</span> 상담문의 <a href={siteConfig.telUrl}>{siteConfig.phone}</a></p>
+      <p class="site-header__utility-text"><span aria-hidden="true">KAKAO</span> 카카오톡 {siteConfig.kakaoId}</p>
+      <p class="site-header__utility-text"><span aria-hidden="true">24H</span> 업무시간 {siteConfig.businessHours}</p>
+      <div class="site-header__social" aria-label="소셜 링크">
+        <a href={siteConfig.kakaoUrl}>talk</a>
+        <a href="/" aria-label="즐겨찾기">★</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-header__hero-band">
+    <div class="site-container site-header__main">
+      <div class="site-header__brand-block">
+        <SiteLogo variant="white" />
+        <p class="site-header__tagline">{siteConfig.tagline}</p>
+      </div>
+      <div class="site-header__contact-block" aria-label="대표 전화">
+        <span class="site-header__phone-icon" aria-hidden="true">TEL</span>
+        <a class="site-header__phone" href={siteConfig.telUrl}>{siteConfig.phone}</a>
+        <span class="site-header__phone-note">365일 24시간, 언제든지 상담 가능합니다.</span>
+      </div>
+      <div class="site-header__action-block">
+        <a class="site-button site-button--kakao" href={siteConfig.kakaoUrl}>카카오톡 상담</a>
+        <a class="site-button site-button--primary" href="#contact">빠른 상담 신청</a>
+      </div>
+      <button class="site-header__menu-button" type="button" aria-expanded="false" aria-controls="primary-navigation" data-mobile-menu-toggle>
+        <span class="site-header__menu-line"></span>
+        <span class="site-header__menu-line"></span>
+        <span class="site-header__menu-line"></span>
+        <span class="sr-only">메뉴 열기</span>
+      </button>
+    </div>
+
+    <nav class="site-container site-nav" id="primary-navigation" data-mobile-menu aria-label="주요 메뉴">
+      {navigation.map((item) => {
+        const itemPath = item.href.replace(/\/$/, '') || '/';
+        const isCurrent = currentPath === itemPath;
+        return <a class={`site-nav__link${isCurrent ? ' is-active' : ''}`} href={item.href} aria-current={isCurrent ? 'page' : undefined}>{item.label}</a>;
+      })}
+    </nav>
+  </div>
+</header>

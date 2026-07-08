@@ -1,0 +1,13 @@
+---
+import VisualIcon from './visual-icon.astro';
+const { card, className = '' } = Astro.props;
+---
+<article class={`service-card service-card--${card.tone ?? 'light'} ${className}`}>
+  <div class="service-card__content">
+    <span class="service-card__rate">{card.rate}</span>
+    <h3 set:html={card.shortTitle ? card.shortTitle.replace(/\n/g, '<br />') : card.title}></h3>
+    <p>{card.summary}</p>
+    <a class="service-card__link" href="/service">자세히 보기</a>
+  </div>
+  <VisualIcon type={card.visual} label={card.title} />
+</article>

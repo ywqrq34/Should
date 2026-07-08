@@ -1,0 +1,50 @@
+---
+import SiteLogo from './site-logo.astro';
+import { navigation, siteConfig } from '../data/site-data.js';
+---
+<footer class="site-footer" id="contact">
+  <div class="site-container site-footer__panel">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <SiteLogo />
+        <p>{siteConfig.tagline}</p>
+      </div>
+      <div class="site-footer__contact-list" aria-label="상담 연락처">
+        <a href={siteConfig.telUrl}>전화 {siteConfig.phone}</a>
+        <a href={siteConfig.kakaoUrl}>카카오톡 {siteConfig.kakaoId}</a>
+      </div>
+      <div class="site-footer__social" aria-label="소셜 링크">
+        <a href={siteConfig.kakaoUrl}>talk</a>
+        <a href="/" aria-label="즐겨찾기">★</a>
+      </div>
+    </div>
+    <div class="site-footer__links">
+      {navigation.map((item) => <a href={item.href}>{item.label}</a>)}
+      <button type="button" data-policy-modal-open="terms">이용약관</button>
+      <button type="button" data-policy-modal-open="privacy">개인정보처리방침</button>
+    </div>
+    <div class="site-footer__info">
+      <p>상호명 {siteConfig.companyName} </p>
+      <p>본 서비스는 관련 법령 및 통신사 정책 범위 내에서 상담을 안내합니다. 실제 지급률과 가능 여부는 상담 시 확인됩니다.</p>
+    </div>
+    <p class="site-footer__copyright">© 2026 {siteConfig.brandName}. All rights reserved.</p>
+  </div>
+  <div class="policy-modal" data-policy-modal hidden>
+    <div class="policy-modal__backdrop" data-policy-modal-close></div>
+    <section class="policy-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="policy-modal-title" tabindex="-1">
+      <button class="policy-modal__close" type="button" aria-label="닫기" data-policy-modal-close>×</button>
+      <div class="policy-modal__scroll">
+        <div class="policy-modal__content" data-policy-content="terms">
+          <h2 id="policy-modal-title">이용약관</h2>
+          <p>본 약관은 베가티켓 상담 서비스 이용과 관련한 기본 사항을 안내합니다. 상담 가능 여부, 진행 조건, 지급률은 고객 상황과 확인 결과에 따라 달라질 수 있습니다.</p>
+          <p>이용자는 상담 과정에서 정확한 정보를 제공해야 하며, 타인 명의 또는 부정확한 정보로 신청한 경우 서비스 이용이 제한될 수 있습니다.</p>
+        </div>
+        <div class="policy-modal__content" data-policy-content="privacy" hidden>
+          <h2>개인정보처리방침</h2>
+          <p>베가티켓은 상담 접수와 진행 안내에 필요한 최소한의 개인정보만 확인하며, 수집한 정보는 상담 목적 외 용도로 사용하지 않습니다.</p>
+          <p>개인정보는 관련 법령과 내부 보호 기준에 따라 관리하며, 보관 목적이 종료되면 지체 없이 파기합니다.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</footer>

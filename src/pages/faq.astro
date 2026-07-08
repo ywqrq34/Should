@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/base-layout.astro';
+import SectionHeading from '../components/section-heading.astro';
+import FaqList from '../components/faq-list.astro';
+import CtaBanner from '../components/cta-banner.astro';
+import { siteConfig, faqs } from '../data/site-data.js';
+---
+<BaseLayout pageClass="faq-page" canonical="/faq" title={`FAQ | ${siteConfig.brandName}`} description="소액결제, 정보이용료, 신용카드 상담 관련 자주 묻는 질문을 확인하세요.">
+  <section class="sub-hero faq-hero">
+    <div class="site-container sub-hero__inner">
+      <div>
+        <p class="sub-hero__eyebrow">FAQ</p>
+        <h1>자주 묻는 질문</h1>
+        <p>지급률, 입금 속도, 미납 가능 여부, 진행 절차 등 궁금한 질문을 정리했습니다.</p>
+      </div>
+      <div class="sub-hero__page-icon sub-hero__page-icon--faq" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section class="faq-main-section" aria-labelledby="faq-main-title">
+    <div class="site-container">
+      <SectionHeading eyebrow="FAQ" title="궁금한 내용을 확인하세요" description="실제 조건은 상담 후 고객 상황에 맞춰 다시 안내합니다." />
+      <FaqList items={faqs} />
+    </div>
+  </section>
+
+  <CtaBanner title="원하는 답변을 찾지 못하셨나요?" description="카카오톡 상담으로 가능 여부와 진행 절차를 바로 확인해 보세요." />
+</BaseLayout>

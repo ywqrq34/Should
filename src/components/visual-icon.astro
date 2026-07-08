@@ -1,0 +1,8 @@
+---
+const { type = 'phone', label = '' } = Astro.props;
+---
+<div class={`visual-icon visual-icon--${type}`} aria-label={label} role="img">
+  <span class="visual-icon__shape visual-icon__shape--main"></span>
+  <span class="visual-icon__shape visual-icon__shape--accent"></span>
+  <span class="visual-icon__shape visual-icon__shape--small"></span>
+</div>

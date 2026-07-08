@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/base-layout.astro';
+import SectionHeading from '../components/section-heading.astro';
+import CtaBanner from '../components/cta-banner.astro';
+import { siteConfig, serviceCards, benefits } from '../data/site-data.js';
+
+const serviceIconMap = {
+  phone: '/images/icon_page_service_phone.svg',
+  chart: '/images/icon_page_service_coin.svg',
+  card: '/images/icon_page_service_card.svg'
+};
+---
+<BaseLayout pageClass="service-page" canonical="/service" title={`서비스 안내 | ${siteConfig.brandName}`} description="휴대폰 소액결제, 정보이용료, 신용카드 상담 서비스를 안내합니다.">
+  <section class="sub-hero service-hero">
+    <div class="site-container sub-hero__inner">
+      <div>
+        <p class="sub-hero__eyebrow">SERVICE</p>
+        <h1>서비스 안내</h1>
+        <p>고객님의 상황에 맞춰 소액결제, 정보이용료, 신용카드 상담 가능 여부를 빠르게 확인합니다.</p>
+      </div>
+      <div class="sub-hero__page-icon sub-hero__page-icon--service" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section class="service-detail-section" aria-labelledby="service-detail-title">
+    <div class="site-container">
+      <SectionHeading eyebrow="SERVICE" title="주요 상담 서비스" description="상담 후 정확한 지급률과 진행 가능 범위를 안내합니다." />
+      <div class="service-detail-list">
+        {serviceCards.map((card) => (
+          <article class="service-detail-card">
+            <span class="service-detail-card__icon" aria-hidden="true">
+              <img src={serviceIconMap[card.visual] ?? '/images/icon_page_service.svg'} alt="" loading="lazy" />
+            </span>
+            <div>
+              <span class="service-detail-card__rate">{card.rate}</span>
+              <h2>{card.title}</h2>
+              <p>{card.description}</p>
+              <ul>
+                {card.points.map((point) => <li>{point}</li>)}
+              </ul>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="service-benefit-section" aria-labelledby="service-benefit-title">
+    <div class="site-container service-benefit-section__panel">
+      <SectionHeading eyebrow="WHY US" title={`${siteConfig.brandName}을 선택하는 이유`} description="복잡한 설명보다 필요한 정보를 빠르게 확인하고, 진행 전 충분히 안내합니다." />
+      <div class="benefit-grid benefit-grid--compact">
+        {benefits.slice(0, 8).map((benefit) => (
+          <article class="benefit-card">
+            <span class="benefit-card__icon">{benefit.icon}</span>
+            <h3>{benefit.title}</h3>
+            <p>{benefit.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner title="내 상황에 맞는 서비스가 궁금하신가요?" description="카카오톡으로 문의주시면 가능 여부와 예상 지급률을 빠르게 안내합니다." />
+</BaseLayout>
