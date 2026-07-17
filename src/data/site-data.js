@@ -2,10 +2,10 @@ export const siteConfig = {
   brandName: '베가티켓',
   brandNameKo: '베가티켓',
   tagline: '소액결제 · 정보이용료 · 신용카드 현금화 전문',
-  phone: '010-2969-2842',
+  phone: '010-2013-6982',
   kakaoId: '@VEGATICKET',
-  kakaoUrl: 'https://vvd.im/wd24',
-  telUrl: 'tel:010-1234-5678',
+  kakaoUrl: 'https://vvd.im/vega',
+  telUrl: 'tel:010-2013-6982',
   businessHours: '24시간 연중무휴',
   companyName: '베가티켓',
 };
