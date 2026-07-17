@@ -1,10 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="og-title og-description">
+  <title id="og-title">VEGATICKET</title>
+  <desc id="og-description">소액결제, 정보이용료, 신용카드 전문 상담</desc>
+
   <rect width="1200" height="630" fill="#f3f5f8"/>
-  <rect x="90" y="90" width="1020" height="450" rx="42" fill="#fff" stroke="#e3e7ed"/>
-  <text x="140" y="220" font-family="Arial, sans-serif" font-size="72" font-weight="900" fill="#181a20">MEGA</text>
-  <text x="355" y="220" font-family="Arial, sans-serif" font-size="72" font-weight="900" fill="#ef1f2d">TICKET</text>
-  <text x="140" y="310" font-family="Arial, sans-serif" font-size="44" font-weight="800" fill="#181a20">소액결제 · 정보이용료 · 신용카드 전문 상담</text>
-  <text x="140" y="380" font-family="Arial, sans-serif" font-size="28" fill="#69707d">상담 전 정확한 지급률 안내 · 개인정보 보호 · 가능 여부 빠른 확인</text>
-  <rect x="140" y="430" width="260" height="68" rx="18" fill="#ef1f2d"/>
-  <text x="192" y="475" font-family="Arial, sans-serif" font-size="26" font-weight="800" fill="#fff">카카오톡 상담</text>
+  <rect x="90" y="90" width="1020" height="450" rx="42" fill="#ffffff" stroke="#e3e7ed" stroke-width="2"/>
+  <rect x="90" y="90" width="12" height="450" rx="6" fill="#ef1f2d"/>
+
+  <image
+    href="logo.png"
+    xlink:href="logo.png"
+    x="140"
+    y="140"
+    width="480"
+    height="98"
+    preserveAspectRatio="xMinYMid meet"
+  />
+
+  <text x="140" y="322" font-family="Pretendard, Arial, sans-serif" font-size="38" font-weight="600" fill="#181a20">소액결제 · 정보이용료 · 신용카드 전문 상담</text>
+  <text x="140" y="382" font-family="Pretendard, Arial, sans-serif" font-size="27" font-weight="400" fill="#69707d">빠른 가능 여부 확인 · 개인정보 보호 · 24시간 상담</text>
+
+  <rect x="140" y="430" width="250" height="68" rx="18" fill="#ef1f2d"/>
+  <text x="265" y="473" text-anchor="middle" font-family="Pretendard, Arial, sans-serif" font-size="25" font-weight="600" fill="#ffffff">카카오톡 상담</text>
 </svg>
