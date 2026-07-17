@@ -29,7 +29,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
       </div>
       <div class="site-header__action-block">
         <a class="site-button site-button--kakao" href={siteConfig.kakaoUrl}>카카오톡 상담</a>
-        <a class="site-button site-button--primary" href="#contact">빠른 상담 신청</a>
+        <a class="site-button site-button--primary" href={siteConfig.telUrl}>전화 상담</a>
       </div>
       <button class="site-header__menu-button" type="button" aria-expanded="false" aria-controls="primary-navigation" data-mobile-menu-toggle>
         <span class="site-header__menu-line"></span>
