@@ -325,15 +325,6 @@ svg {
   padding-inline: 30px;
 }
 
-/* 카톡 · 전화 버튼 동일 크기 (히어로 · 상단 헤더) */
-.home-hero__actions .site-button {
-  flex: 1 1 0;
-  max-width: 220px;
-}
-.site-header__action-block .site-button {
-  flex: 1 1 0;
-}
-
 .site-logo {
   display: inline-flex;
   align-items: center;
